@@ -15,4 +15,4 @@ API Testing Framework
               2.4 : Install required python module, type : pip install -r requirement.txt
         
 # Run
-    pytest -v -s --html=./Reports/report.html testCases/
+    pytest -v -s --html=./Reports/report.html TestCases/
