@@ -1,7 +1,7 @@
 import requests
 import json
 from Utilities.customLogger import LogGen
-from Utilities.utility import assert_valid_schema
+from Utilities.assertions import assert_valid_schema
 
 
 class Test_API:
@@ -20,7 +20,7 @@ class Test_API:
         json_data = (json.loads(resp.text))
         # Assert
         assert resp.status_code == 200
-        assert_valid_schema(json_data[0])
+        assert_valid_schema(json_data[0], 'user.json')
         assert len(json_data) == 100
         self.logger.info("test_get_when_api_returns_at_least_100_records completed")
 
@@ -33,7 +33,7 @@ class Test_API:
         json_data = (json.loads(resp.text))
         # Assert
         assert resp.status_code == 200
-        assert_valid_schema(json_data)
+        assert_valid_schema(json_data, 'user.json')
         assert len(json_data)/4 == 1
         assert json_data['id'] == 1
         self.logger.info("test_verify_user_id completed")
